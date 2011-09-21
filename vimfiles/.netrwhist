@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/wayne'
+let g:netrw_dirhist_2='/home/wayne/.update-notifier'
+let g:netrw_dirhist_3='/home/wayne/.vim/tags'
