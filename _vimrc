@@ -58,7 +58,12 @@ if has("gui_running")
     colors wombat
     set columns=90
     set lines=40
+    set winaltkeys=no
 endif
+
+" Set mappings for jumping to matching paren with alt-h/alt-l
+noremap è %
+noremap ì %
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
