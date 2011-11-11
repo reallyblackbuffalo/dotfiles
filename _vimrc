@@ -59,6 +59,8 @@ if has("gui_running")
     set columns=90
     set lines=40
     set winaltkeys=no
+else
+    set bg=dark
 endif
 
 " Set mappings for jumping to matching paren with alt-h/alt-l
