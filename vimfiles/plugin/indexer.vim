@@ -445,7 +445,7 @@ endfunction
 function! <SID>ChangeDirToVimprj(sPath)
    " переключаем рабочую директорию
    if (s:indexer_changeCurDirIfVimprjFound)
-      exec "cd "."\"".a:sPath."\""
+      exec "cd ".a:sPath
    endif
 endfunction
 
