@@ -10,6 +10,7 @@ set nocompatible " Use Vim default settings.
 
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set ruler   " show the cursor position all the time
+set laststatus=2
 
 " Tab Settings
 set tabstop=4
@@ -130,4 +131,3 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
-
