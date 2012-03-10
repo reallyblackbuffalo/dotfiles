@@ -61,7 +61,8 @@ if has("gui_running")
     set lines=40
     set winaltkeys=no
 else
-    set bg=dark
+"    set bg=dark
+    colors desert256
 endif
 
 " Set mappings for jumping to matching paren with alt-h/alt-l
