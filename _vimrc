@@ -49,6 +49,9 @@ noremap <F4> :set hlsearch! hlsearch?<CR>
 " Press F8 to highlight all occurrences of the current word.
 noremap <F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
+set t_Co=256
+colors wombat256
+
 " Set gui specific settings (could go in a gvimrc file)
 if has("gui_running")
     if has("gui_gtk2")
@@ -56,13 +59,9 @@ if has("gui_running")
     elseif has("gui_win32")
         set guifont=Inconsolata:h12
     endif
-    colors wombat
     set columns=90
     set lines=40
     set winaltkeys=no
-else
-"    set bg=dark
-    colors desert256
 endif
 
 " Set mappings for jumping to matching paren with alt-h/alt-l
