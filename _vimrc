@@ -68,6 +68,16 @@ endif
 noremap è %
 noremap ì %
 
+" Project Plugin Settings
+map <A-S-p> :Project<CR>
+map <A-S-o> :Project<CR>:redraw<CR>/
+nmap <silent> <F3> <Plug>ToggleProject
+let g:proj_window_width = 30
+let g:proj_window_increment = 50
+
+" Turn off the confounded beeping.
+set noerrorbells visualbell t_vb=
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -95,6 +105,9 @@ if has("autocmd")
                     \ endif
 
     augroup END
+
+    " Turn off the confounded beeping.
+    autocmd GUIEnter * set visualbell t_vb=
 
 else
 
