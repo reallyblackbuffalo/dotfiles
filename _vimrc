@@ -64,10 +64,6 @@ if has("gui_running")
     set winaltkeys=no
 endif
 
-" Set mappings for jumping to matching paren with alt-h/alt-l
-noremap è %
-noremap ì %
-
 " Turn off the confounded beeping.
 set noerrorbells visualbell t_vb=
 
