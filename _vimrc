@@ -39,6 +39,11 @@ inoremap <C-U> <C-G>u<C-U>
 syntax on
 set number
 
+" Set things up for the list setting, which shows invisible things like tabs
+" and eol, etc.
+set listchars=eol:$,tab:>-
+noremap <F6> :set list!<CR>
+
 " Switch on highlighting the last used search pattern.
 set hlsearch
 " Press Space to turn off highlighting and clear any message already
