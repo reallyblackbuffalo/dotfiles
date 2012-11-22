@@ -44,6 +44,9 @@ set number
 set listchars=eol:$,tab:>-
 noremap <F6> :set list!<CR>
 
+" NERDTree Mappings
+noremap <F2> :NERDTreeToggle<CR>
+
 " Switch on highlighting the last used search pattern.
 set hlsearch
 " Press Space to turn off highlighting and clear any message already
