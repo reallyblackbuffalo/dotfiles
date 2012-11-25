@@ -46,6 +46,7 @@ noremap <F6> :set list!<CR>
 
 " NERDTree Mappings
 noremap <F2> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen=1
 
 " Switch on highlighting the last used search pattern.
 set hlsearch
