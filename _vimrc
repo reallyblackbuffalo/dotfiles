@@ -23,6 +23,11 @@ else
     set backup        " keep a backup file
 endif
 
+" Put swap and backup files in a system directory instead of in the current
+" directory.
+set backupdir=$HOME/vimfiles/tmp/
+set directory=$HOME/vimfiles/tmp//
+
 set history=50  " keep 50 lines of command line history
 set showcmd " display incomplete commands
 set showmatch   " Show matching brackets.
