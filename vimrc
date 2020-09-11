@@ -1,6 +1,5 @@
 " Wayne Robison
 " Personalized vimrc file
-" 14 Sep 2011
 
 " Set to work with the Vim-related packages available in Debian.
 " (No error if not in Debian)
@@ -23,10 +22,11 @@ else
     set backup        " keep a backup file
 endif
 
-" Put swap and backup files in a system directory instead of in the current
-" directory.
-set backupdir=$HOME/vimfiles/tmp/
-set directory=$HOME/vimfiles/tmp//
+" Put undo, swap, and backup files in a system directory instead of in the current directory.
+let uservimdir = expand('%:p:h')
+execute 'set backupdir=' . uservimdir . '/.backup//'
+execute 'set directory=' . uservimdir . '/.swp//'
+execute 'set undodir=' . uservimdir . '/.undo//'
 
 set history=50  " keep 50 lines of command line history
 set showcmd " display incomplete commands
