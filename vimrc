@@ -71,7 +71,7 @@ if has("gui_running")
     if has("gui_gtk2")
         set guifont=Inconsolata\ 12
     elseif has("gui_win32")
-        set guifont=Inconsolata:h12
+        set guifont=Inconsolata:h12,Consolas:h12
     endif
     set columns=90
     set lines=40
