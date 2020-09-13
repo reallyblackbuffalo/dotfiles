@@ -23,10 +23,10 @@ else
 endif
 
 " Put undo, swap, and backup files in a system directory instead of in the current directory.
-let uservimdir = expand('%:p:h')
-execute 'set backupdir=' . uservimdir . '/.backup//'
-execute 'set directory=' . uservimdir . '/.swp//'
-execute 'set undodir=' . uservimdir . '/.undo//'
+let uservimdir = fnamemodify($MYVIMRC, ':p:h')
+execute 'set backupdir^=' . uservimdir . '/.backup//'
+execute 'set directory^=' . uservimdir . '/.swp//'
+execute 'set undodir^=' . uservimdir . '/.undo//'
 
 set history=50  " keep 50 lines of command line history
 set showcmd " display incomplete commands
