@@ -1,0 +1,3 @@
+[submodule "pack/personal/start/racket"]
+	path = pack/personal/start/racket
+	url = https://github.com/wlangstroth/vim-racket.git
