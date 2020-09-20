@@ -1,3 +1,6 @@
 [submodule "pack/personal/start/racket"]
 	path = pack/personal/start/racket
 	url = https://github.com/wlangstroth/vim-racket.git
+[submodule "pack/personal/start/nerdtree"]
+	path = pack/personal/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
