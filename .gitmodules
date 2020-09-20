@@ -12,6 +12,6 @@
 	path = pack/personal/start/OmniCppComplete
 	url = https://github.com/vim-scripts/OmniCppComplete.git
     ignore = dirty
-[submodule "pack/personal/start/taglist"]
-	path = pack/personal/start/taglist
+[submodule "pack/personal/opt/taglist"]
+	path = pack/personal/opt/taglist
 	url = https://github.com/yegappan/taglist.git
