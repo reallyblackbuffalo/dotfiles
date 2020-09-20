@@ -4,3 +4,7 @@
 [submodule "pack/personal/start/nerdtree"]
 	path = pack/personal/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule "pack/personal/start/matchit"]
+	path = pack/personal/start/matchit
+	url = https://github.com/chrisbra/matchit.git
+    ignore = dirty
