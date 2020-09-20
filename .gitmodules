@@ -8,3 +8,7 @@
 	path = pack/personal/start/matchit
 	url = https://github.com/chrisbra/matchit.git
     ignore = dirty
+[submodule "pack/personal/start/OmniCppComplete"]
+	path = pack/personal/start/OmniCppComplete
+	url = https://github.com/vim-scripts/OmniCppComplete.git
+    ignore = dirty
