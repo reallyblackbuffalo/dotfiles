@@ -1,10 +1,8 @@
 " Wayne Robison
 " Personalized vimrc file specific for use with Visual Studio via VsVim
-" 15 May 2012
-
-set nocompatible
 
 set backspace=indent,eol,start
+set laststatus=2
 
 set tabstop=4
 set shiftwidth=4
@@ -18,8 +16,10 @@ set smartcase
 set number
 
 set hlsearch
-
 nnoremap <Space> :nohlsearch<CR>
+
+noremap <F6> :set list!<CR>
+noremap <F4> :set hlsearch! hlsearch?<CR>
 
 set visualbell
 
