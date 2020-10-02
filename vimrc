@@ -8,18 +8,18 @@ runtime! debian.vim
 set nocompatible " Use Vim default settings.
 
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set ruler   " show the cursor position all the time
+set ruler " show the cursor position all the time
 set laststatus=2
 
 " Tab Settings
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set noexpandtab " Prefer tabs over spaces by default. Shift-F6 is mapped to toggle.
 
 if has("vms")
-    set nobackup      " do not keep a backup file, use versions instead
+    set nobackup " do not keep a backup file, use versions instead
 else
-    set backup        " keep a backup file
+    set backup " keep a backup file
 endif
 
 " Put undo, swap, and backup files in a system directory instead of in the current directory.
@@ -28,13 +28,14 @@ execute 'set backupdir^=' . uservimdir . '/.backup//'
 execute 'set directory^=' . uservimdir . '/.swp//'
 execute 'set undodir^=' . uservimdir . '/.undo//'
 
-set history=50  " keep 50 lines of command line history
+set history=50 " keep 50 lines of command line history
 set showcmd " display incomplete commands
-set showmatch   " Show matching brackets.
-set ignorecase  " Do case insensitive matching
-set smartcase   " Do smart case matching
-"set incsearch  " Do incremental searching
-set hidden  " Hide buffers when they are abandoned
+set showmatch " Show matching brackets.
+" Do case sensitive matching by default (I've mapped Shift-F4 to toggle this).
+set noignorecase
+" Don't do smart case matching (that's when any captials make it case sensitive, even when ignorecase is on).
+set nosmartcase
+set hidden " Hide buffers when they are abandoned
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -46,8 +47,9 @@ set number
 
 " Set things up for the list setting, which shows invisible things like tabs
 " and eol, etc.
-set listchars=eol:$,tab:>-
-noremap <F6> :set list!<CR>
+set listchars=tab:>-,space:·
+noremap <F6> :set list! list?<CR>
+noremap <S-F6> :set expandtab! expandtab?<CR>
 
 " NERDTree Mappings
 noremap <F2> :NERDTreeToggle<CR>
@@ -60,6 +62,7 @@ set hlsearch
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " Press F4 to toggle highlighting on/off, and show current value.
 noremap <F4> :set hlsearch! hlsearch?<CR>
+noremap <S-F4> :set ignorecase! ignorecase?<CR>
 " Press F8 to highlight all occurrences of the current word.
 noremap <F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 

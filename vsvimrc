@@ -6,20 +6,24 @@ set laststatus=2
 
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set noexpandtab " Prefer tabs over spaces by default. Shift-F6 is mapped to toggle.
 
 set history=50
 
-set ignorecase
-set smartcase
+" Do case sensitive matching by default (I've mapped Shift-F4 to toggle this).
+set noignorecase
+" Don't do smart case matching (that's when any captials in the search pattern make it case sensitive, even when ignorecase is on).
+set nosmartcase
 
 set number
 
 set hlsearch
 nnoremap <Space> :nohlsearch<CR>
 
-noremap <F6> :set list!<CR>
+noremap <F6> :set list! list?<CR>
+noremap <S-F6> :set expandtab! expandtab?<CR>
 noremap <F4> :set hlsearch! hlsearch?<CR>
+noremap <S-F4> :set ignorecase! ignorecase?<CR>
 
 set visualbell
 
