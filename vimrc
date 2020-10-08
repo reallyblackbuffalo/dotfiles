@@ -79,6 +79,12 @@ if has("gui_running")
     set columns=90
     set lines=40
     set winaltkeys=no
+
+	" Hide scroll bars
+	set guioptions-=l
+	set guioptions-=L
+	set guioptions-=r
+	set guioptions-=R
 endif
 
 " Turn off the confounded beeping.
