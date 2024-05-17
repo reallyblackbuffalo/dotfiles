@@ -47,7 +47,7 @@ set number
 
 " Set things up for the list setting, which shows invisible things like tabs
 " and eol, etc.
-set listchars=tab:>-,space:·
+set listchars=tab:>-,space:Â·
 noremap <F6> :set list! list?<CR>
 noremap <S-F6> :set expandtab! expandtab?<CR>
 
