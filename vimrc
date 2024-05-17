@@ -127,6 +127,12 @@ else
 
 endif " has("autocmd")
 
+" Configure command line tab completion
+set wildmenu
+if v:version >= 825
+	set wildoptions=pum
+endif
+
 " configure tags - add additional tags here or comment out not-used ones
 "set tags+=~/.vim/tags/cpp_tags
 "set tags+=~/.vim/tags/c_tags
