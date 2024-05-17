@@ -67,7 +67,7 @@ noremap <S-F4> :set ignorecase! ignorecase?<CR>
 noremap <F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 set t_Co=256
-colors wombat256
+colors mywombat
 
 " Set gui specific settings (could go in a gvimrc file)
 if has("gui_running")
