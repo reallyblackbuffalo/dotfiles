@@ -71,6 +71,12 @@ noremap <S-F4> :set ignorecase! ignorecase?<CR>
 " Press F8 to highlight all occurrences of the current word.
 noremap <F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
+" Easier window navigation
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+
 set t_Co=256
 colors mywombat
 
