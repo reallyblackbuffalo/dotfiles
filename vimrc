@@ -45,6 +45,11 @@ inoremap <C-U> <C-G>u<C-U>
 syntax on
 set number
 
+" Set default encoding for older versions of Vim
+if v:version < 823
+	set encoding=utf-8
+endif
+
 " Set things up for the list setting, which shows invisible things like tabs
 " and eol, etc.
 set listchars=tab:>-,space:·
