@@ -1,0 +1,2 @@
+@echo off
+PowerShell -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-ExecutionPolicy Bypass -Command ""& Set-Location """"%~dp0""""; %~dp0/setupScripts/setupWin.ps1""' -Verb RunAs}"
