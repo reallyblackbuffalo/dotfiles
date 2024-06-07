@@ -53,11 +53,13 @@ endif
 " Set things up for the list setting, which shows invisible things like tabs
 " and eol, etc.
 set listchars=tab:>-,space:·
-noremap <F6> :set list! list?<CR>
-noremap <S-F6> :set expandtab! expandtab?<CR>
+" Toggle Show whitespace
+noremap <Leader>ts :set list! list?<CR>
+" Toggle Tabs
+noremap <Leader>tt :set expandtab! expandtab?<CR>
 
 " NERDTree Mappings
-noremap <F2> :NERDTreeToggle<CR>
+noremap <Leader>e :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
 
 " Switch on highlighting the last used search pattern.
@@ -65,11 +67,12 @@ set hlsearch
 " Press Space to turn off highlighting and clear any message already
 " displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-" Press F4 to toggle highlighting on/off, and show current value.
-noremap <F4> :set hlsearch! hlsearch?<CR>
-noremap <S-F4> :set ignorecase! ignorecase?<CR>
-" Press F8 to highlight all occurrences of the current word.
-noremap <F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+" Toggle Highlighting, and show current value.
+noremap <Leader>th :set hlsearch! hlsearch?<CR>
+" Toggle Ignorecase
+noremap <Leader>ti :set ignorecase! ignorecase?<CR>
+" Highlight all occurrences of the current word.
+noremap <Leader>H :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " Easier window navigation
 nnoremap <C-H> <C-W>h
