@@ -1,13 +1,13 @@
 [submodule "pack/personal/start/racket"]
-	path = pack/personal/start/racket
+	path = vimfiles/pack/personal/start/racket
 	url = https://github.com/wlangstroth/vim-racket.git
 [submodule "pack/personal/start/nerdtree"]
-	path = pack/personal/start/nerdtree
+	path = vimfiles/pack/personal/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
 [submodule "pack/personal/start/OmniCppComplete"]
-	path = pack/personal/start/OmniCppComplete
+	path = vimfiles/pack/personal/start/OmniCppComplete
 	url = https://github.com/vim-scripts/OmniCppComplete.git
 	ignore = dirty
 [submodule "pack/personal/opt/taglist"]
-	path = pack/personal/opt/taglist
+	path = vimfiles/pack/personal/opt/taglist
 	url = https://github.com/yegappan/taglist.git
