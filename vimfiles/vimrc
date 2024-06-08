@@ -17,9 +17,9 @@ set shiftwidth=4
 set noexpandtab " Prefer tabs over spaces by default. Shift-F6 is mapped to toggle.
 
 if has("vms")
-    set nobackup " do not keep a backup file, use versions instead
+	set nobackup " do not keep a backup file, use versions instead
 else
-    set backup " keep a backup file
+	set backup " keep a backup file
 endif
 
 " Put undo, swap, and backup files in a system directory instead of in the current directory.
@@ -82,14 +82,14 @@ colors mywombat
 
 " Set gui specific settings (could go in a gvimrc file)
 if has("gui_running")
-    if has("gui_gtk2")
-        set guifont=Inconsolata\ 12
-    elseif has("gui_win32")
-        set guifont=Inconsolata:h12,Consolas:h12
-    endif
-    set columns=90
-    set lines=40
-    set winaltkeys=no
+	if has("gui_gtk2")
+		set guifont=Inconsolata\ 12
+	elseif has("gui_win32")
+		set guifont=Inconsolata:h12,Consolas:h12
+	endif
+	set columns=90
+	set lines=40
+	set winaltkeys=no
 
 	" Hide scroll bars
 	set guioptions-=l
@@ -104,37 +104,37 @@ set noerrorbells visualbell t_vb=
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-    " Enable file type detection.
-    " Use the default filetype settings, so that mail gets 'tw' set to 72,
-    " 'cindent' is on in C files, etc.
-    " Also load indent files, to automatically do language-dependent indenting.
-    filetype plugin indent on
+	" Enable file type detection.
+	" Use the default filetype settings, so that mail gets 'tw' set to 72,
+	" 'cindent' is on in C files, etc.
+	" Also load indent files, to automatically do language-dependent indenting.
+	filetype plugin indent on
 
-    " Put these in an autocmd group, so that we can delete them easily.
-    augroup vimrcEx
-        au!
+	" Put these in an autocmd group, so that we can delete them easily.
+	augroup vimrcEx
+		au!
 
-        " For all text files set 'textwidth' to 78 characters.
-        autocmd FileType text setlocal textwidth=78
+		" For all text files set 'textwidth' to 78 characters.
+		autocmd FileType text setlocal textwidth=78
 
-        " When editing a file, always jump to the last known cursor position.
-        " Don't do it when the position is invalid or when inside an event handler
-        " (happens when dropping a file on gvim).
-        " Also don't do it when the mark is in the first line, that is the default
-        " position when opening a file.
-        autocmd BufReadPost *
-                    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-                    \   exe "normal! g`\"" |
-                    \ endif
+		" When editing a file, always jump to the last known cursor position.
+		" Don't do it when the position is invalid or when inside an event handler
+		" (happens when dropping a file on gvim).
+		" Also don't do it when the mark is in the first line, that is the default
+		" position when opening a file.
+		autocmd BufReadPost *
+					\ if line("'\"") > 1 && line("'\"") <= line("$") |
+					\   exe "normal! g`\"" |
+					\ endif
 
-    augroup END
+	augroup END
 
-    " Turn off the confounded beeping.
-    autocmd GUIEnter * set visualbell t_vb=
+	" Turn off the confounded beeping.
+	autocmd GUIEnter * set visualbell t_vb=
 
 else
 
-    set autoindent        " always set autoindenting on
+	set autoindent        " always set autoindenting on
 
 endif " has("autocmd")
 
