@@ -80,6 +80,14 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 
+" Move current line/selection up/down using Alt-k/j
+noremap <A-k> :m -2<CR>
+noremap <A-j> :m +<CR>
+inoremap <A-k> <ESC>:m -2<CR>gi
+inoremap <A-j> <ESC>:m +<CR>gi
+xnoremap <A-k> :m '<-2<CR>gv
+xnoremap <A-j> :m '>+<CR>gv
+
 set t_Co=256
 colors mywombat
 
