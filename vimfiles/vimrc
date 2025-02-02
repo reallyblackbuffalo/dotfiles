@@ -4,10 +4,14 @@
 " Turn on relative line numbers.
 set number relativenumber
 
+" Set leader and local leader.
+let mapleader = " "
+let maplocalleader = "\\"
+
 " Mappings for moving the current line down or up.
-noremap - ddp
-noremap _ ddkP
+noremap <leader>- ddp
+noremap <leader>_ ddkP
 
 " Mappings for uppercasing the current word in insert and normal modes.
-inoremap <c-u> <esc>viwUea
-nnoremap <c-u> viwU
+inoremap <leader><c-u> <esc>viwUea
+nnoremap <leader><c-u> viwU
