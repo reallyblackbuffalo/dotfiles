@@ -5,7 +5,7 @@ echo ">^.^<"
 set number relativenumber
 
 " Set leader and local leader.
-let mapleader = " "
+let mapleader = "\\"
 let maplocalleader = "\\"
 
 " Mappings for moving the current line down or up.
@@ -15,3 +15,10 @@ noremap <leader>_ ddkP
 " Mappings for uppercasing the current word in insert and normal modes.
 inoremap <leader><c-u> <esc>viwUea
 nnoremap <leader><c-u> viwU
+
+" Mappings to open and source config file
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Abbreviation for email address.
+iabbrev @@ myemail@example.com
