@@ -5,15 +5,15 @@
 set number relativenumber
 
 " Set leader and local leader.
-let mapleader = "\\"
+let mapleader = " "
 let maplocalleader = "\\"
 
 " Mappings for moving the current line down or up.
-noremap <leader>- ddp
-noremap <leader>_ ddkP
+nnoremap <leader>- ddp
+nnoremap <leader>_ ddkP
 
 " Mappings for uppercasing the current word in insert and normal modes.
-inoremap <leader><c-u> <esc>viwUea
+inoremap <c-u> <esc>viwUea
 nnoremap <leader><c-u> viwU
 
 " Mappings to open and source vimrc file.
