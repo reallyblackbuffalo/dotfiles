@@ -41,3 +41,11 @@ autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
 autocmd FileType python vnoremap <buffer> <localleader>c :normal I#<esc>
 autocmd FileType vim nnoremap <buffer> <localleader>c I"<esc>
 autocmd FileType vim vnoremap <buffer> <localleader>c :normal I"<esc>
+
+" Autocommands to set snippet-like abbreviations for different file types.
+autocmd FileType javascript,c,cpp,java iabbrev <buffer> iff if ()<left>
+autocmd FileType python iabbrev <buffer> iff if:<left>
+autocmd FileType javascript,c,cpp,java,python iabbrev <buffer> ret return
+autocmd FileType javascript,c,cpp,java,python iabbrev <buffer> return NOPENOPENOPE
+autocmd FileType javascript iabbrev <buffer> fn function
+autocmd FileType javascript iabbrev <buffer> function NOPENOPENOPE
