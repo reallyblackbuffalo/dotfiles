@@ -40,6 +40,7 @@ onoremap in{ :<c-u>normal! f{vi{<cr>
 onoremap il{ :<c-u>normal! F}vi{<cr>
 onoremap an{ :<c-u>normal! f{va{<cr>
 onoremap al{ :<c-u>normal! F}va{<cr>
+onoremap in@ :<c-u>execute "normal! /\\(\\w\\<bar>[.%+-]\\)\\+@\\(\\a\\<bar>\\d\\<bar>[.-]\\)\\+\\.\\a\\{2,}\r:nohlsearch\rvt@"<cr>
 
 " Abbreviation for email address.
 iabbrev @@ myemail@example.com
@@ -70,4 +71,11 @@ augroup END
 augroup filetype_html
 	autocmd!
 	autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
+augroup END
+
+" Autocommands for setting operator-pending mappings for markdown files.
+augroup filetype_markdown_mappings
+	autocmd!
+	autocmd FileType markdown onoremap <buffer> ih :<c-u>execute "normal! ?^\\(=\\{2,}\\<bar>-\\{2,}\\)$\r:nohlsearch\rkvg_"<cr>
+	autocmd FileType markdown onoremap <buffer> ah :<c-u>execute "normal! ?^\\(=\\{2,}\\<bar>-\\{2,}\\)$\r:nohlsearch\rg_vk0"<cr>
 augroup END
