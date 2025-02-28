@@ -4,6 +4,14 @@ echo ">^.^<"
 " Turn on relative line numbers.
 set number relativenumber
 
+" Custom status line
+set statusline=%f		" Filename/relative path
+set statusline+=%(\ %m%h%w%r%)	" Flags
+set statusline+=\ %y		" Filetype
+set statusline+=%=		" Switch to right side
+set statusline+=%-14(%l,%c%V%)	" Ruler line and column
+set statusline+=\ %P		" Ruler percentage
+
 " Set leader and local leader.
 let mapleader = " "
 let maplocalleader = "\\"
