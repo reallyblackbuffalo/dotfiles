@@ -1,24 +1,40 @@
+" Load defaults.vim ---------------------- {{{
+
 " Set the defaults like turning on filetype detection and enabling normal
 " backspace functionality.
 source $VIMRUNTIME/defaults.vim
 
+" }}}
+
+" Print Welcome Message ---------------------- {{{
+
 " Print friendly ASCII-art cat whenever I open Vim. (Not working for some reason)
 "echo ">^.^<"
+
+" }}}
+
+" Basic Settings ---------------------- {{{
 
 " Turn on relative line numbers.
 set number relativenumber
 
-" Custom status line
+" }}}
+
+" Custom status line ---------------------- {{{
 set statusline=%f		" Filename/relative path
 set statusline+=%(\ %m%h%w%r%)	" Flags
 set statusline+=\ %y		" Filetype
 set statusline+=%=		" Switch to right side
 set statusline+=%-14(%l,%c%V%)	" Ruler line and column
 set statusline+=\ %P		" Ruler percentage
+" }}}
 
-" Set leader and local leader.
+" Set leader and local leader. ---------------------- {{{
 let mapleader = " "
 let maplocalleader = "\\"
+" }}}
+
+" Mappings ---------------------- {{{
 
 " Mappings for moving the current line down or up.
 nnoremap <leader>- ddp
@@ -43,7 +59,9 @@ vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>lel
 nnoremap H 0
 nnoremap L $
 
-" Operator-pending mappings
+" }}}
+
+" Operator-pending mappings ---------------------- {{{
 onoremap in( :<c-u>normal! f(vi(<cr>
 onoremap il( :<c-u>normal! F)vi(<cr>
 onoremap an( :<c-u>normal! f(va(<cr>
@@ -53,9 +71,16 @@ onoremap il{ :<c-u>normal! F}vi{<cr>
 onoremap an{ :<c-u>normal! f{va{<cr>
 onoremap al{ :<c-u>normal! F}va{<cr>
 onoremap in@ :<c-u>execute "normal! /\\(\\w\\<bar>[.%+-]\\)\\+@\\(\\a\\<bar>\\d\\<bar>[.-]\\)\\+\\.\\a\\{2,}\r:nohlsearch\rvt@"<cr>
+" }}}
+
+" Abbreviations ---------------------- {{{
 
 " Abbreviation for email address.
 iabbrev @@ myemail@example.com
+
+" }}}
+
+" FileType-specific Mappings ----------------------  {{{
 
 " Autocommands for commenting out the current line in different languages.
 augroup filetype_comment_mappings
@@ -68,6 +93,16 @@ augroup filetype_comment_mappings
 	autocmd FileType vim vnoremap <buffer> <localleader>c :normal I"<esc>
 augroup END
 
+" Autocommand for folding the current tag in an html file.
+augroup filetype_html
+	autocmd!
+	autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
+augroup END
+
+" }}}
+
+" FileType-specific Abbreviations ---------------------- {{{
+
 " Autocommands to set snippet-like abbreviations for different file types.
 augroup filetype_snippet_abbreviations
 	autocmd!
@@ -79,11 +114,9 @@ augroup filetype_snippet_abbreviations
 	autocmd FileType javascript iabbrev <buffer> function NOPENOPENOPE
 augroup END
 
-" Autocommand for folding the current tag in an html file.
-augroup filetype_html
-	autocmd!
-	autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
-augroup END
+" }}}
+
+" FileType-specific Operator-pending Mappings ---------------------- {{{
 
 " Autocommands for setting operator-pending mappings for markdown files.
 augroup filetype_markdown_mappings
@@ -91,3 +124,12 @@ augroup filetype_markdown_mappings
 	autocmd FileType markdown onoremap <buffer> ih :<c-u>execute "normal! ?^\\(=\\{2,}\\<bar>-\\{2,}\\)$\r:nohlsearch\rkvg_"<cr>
 	autocmd FileType markdown onoremap <buffer> ah :<c-u>execute "normal! ?^\\(=\\{2,}\\<bar>-\\{2,}\\)$\r:nohlsearch\rg_vk0"<cr>
 augroup END
+
+" }}}
+
+" Vimscript file settings ---------------------- {{{
+augroup filetype_vim
+	autocmd!
+	autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
