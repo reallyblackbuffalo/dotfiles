@@ -18,6 +18,9 @@ source $VIMRUNTIME/defaults.vim
 " Turn on relative line numbers.
 set number relativenumber
 
+" Search settings
+set hlsearch incsearch
+
 " }}}
 
 " Custom status line ---------------------- {{{
@@ -61,6 +64,19 @@ nnoremap L $
 
 " Open the previous buffer in a split to the left.
 nnoremap <leader>op :execute "leftabove vsplit" bufname("#")<cr>
+
+" Highlight trailing whitespace as an error.
+nnoremap <silent> <leader>w :match Error /\v\S\zs\s+$/<cr>
+
+" Clear the trailing whitespace highlighting.
+nnoremap <silent> <leader>W :match<cr>
+
+" Automatically turn on "very magic" mode when beginning a search.
+nnoremap / /\v
+nnoremap ? ?\v
+
+" Clear search highlighting
+nnoremap <silent> <leader><space> :nohlsearch<cr>
 
 " }}}
 
