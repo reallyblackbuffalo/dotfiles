@@ -20,5 +20,16 @@ nnoremap <leader><c-u> viwU
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Mappings for surrounding the current word (or selection) with quotes.
+nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
+vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>lel
+vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>lel
+
+" Mappings for going to the beginning and end of the line. (Not sure yet if I
+" like these enough to give up the original functions of H and L)
+nnoremap H 0
+nnoremap L $
+
 " Abbreviation for email address.
 iabbrev @@ myemail@example.com
