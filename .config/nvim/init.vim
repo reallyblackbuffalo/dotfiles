@@ -51,6 +51,9 @@ vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>lel
 nnoremap H 0
 nnoremap L $
 
+" Open the previous buffer in a split to the left.
+nnoremap <leader>op :execute "leftabove vsplit" bufname("#")<cr>
+
 " }}}
 
 " Operator-pending mappings ---------------------- {{{
