@@ -33,3 +33,11 @@ nnoremap L $
 
 " Abbreviation for email address.
 iabbrev @@ myemail@example.com
+
+" Autocommands for commenting out the current line in different languages.
+autocmd FileType javascript,c,cpp,java nnoremap <buffer> <localleader>c I//<esc>
+autocmd FileType javascript,c,cpp,java vnoremap <buffer> <localleader>c :normal I//<esc>
+autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+autocmd FileType python vnoremap <buffer> <localleader>c :normal I#<esc>
+autocmd FileType vim nnoremap <buffer> <localleader>c I"<esc>
+autocmd FileType vim vnoremap <buffer> <localleader>c :normal I"<esc>
