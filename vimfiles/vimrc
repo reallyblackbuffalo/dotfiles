@@ -35,6 +35,16 @@ vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>lel
 nnoremap H 0
 nnoremap L $
 
+" Operator-pending mappings
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap il( :<c-u>normal! F)vi(<cr>
+onoremap an( :<c-u>normal! f(va(<cr>
+onoremap al( :<c-u>normal! F)va(<cr>
+onoremap in{ :<c-u>normal! f{vi{<cr>
+onoremap il{ :<c-u>normal! F}vi{<cr>
+onoremap an{ :<c-u>normal! f{va{<cr>
+onoremap al{ :<c-u>normal! F}va{<cr>
+
 " Abbreviation for email address.
 iabbrev @@ myemail@example.com
 
