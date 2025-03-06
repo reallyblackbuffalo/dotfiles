@@ -13,6 +13,17 @@ set number relativenumber
 " Search settings
 set hlsearch incsearch
 
+if has('win32')
+	" Windows defaults to using findstr for grep, which doesn't work the
+	" greatest. I specifically was running into issues where redirecting
+	" the output to a file (like what the Neovim grep command does)
+	" doesn't work when the search term includes a double quote that has
+	" to be escaped properly.
+	" Use powershell's Select-String instead (though it takes a bit more
+	" setup).
+	let &grepprg = 'powershell -Command "Select-String $* \| Out-String -Stream \| Where { $_ -ne '''' }"'
+endif
+
 " }}}
 
 " Custom status line ---------------------- {{{
@@ -69,6 +80,17 @@ nnoremap ? ?\v
 
 " Clear search highlighting
 nnoremap <silent> <leader><space> :nohlsearch<cr>
+
+" Grep operator (syntax and escaping are different for powershell Select-String on Windows)
+if has('win32')
+	nnoremap<leader>g :silent execute "grep! '" . substitute(substitute(expand("<cWORD>"), "'", "''", "g"), '"', '""""', 'g') . "' *.*,**/*.*"<cr>:copen 15<cr>
+else
+	nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen 15<cr>
+endif
+
+" Mappings for going to the next and previous matches in the quickfix list.
+nnoremap <leader>n :cnext<cr>
+nnoremap <leader>p :cprevious<cr>
 
 " }}}
 
