@@ -81,13 +81,6 @@ nnoremap ? ?\v
 " Clear search highlighting
 nnoremap <silent> <leader><space> :nohlsearch<cr>
 
-" Grep operator (syntax and escaping are different for powershell Select-String on Windows)
-if has('win32')
-	nnoremap<leader>g :silent execute "grep! '" . substitute(substitute(expand("<cWORD>"), "'", "''", "g"), '"', '""""', 'g') . "' *.*,**/*.*"<cr>:copen 15<cr>
-else
-	nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen 15<cr>
-endif
-
 " Mappings for going to the next and previous matches in the quickfix list.
 nnoremap <leader>n :cnext<cr>
 nnoremap <leader>p :cprevious<cr>
