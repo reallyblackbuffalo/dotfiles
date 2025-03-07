@@ -1,9 +1,11 @@
 " Code for the Grep operator (doesn't work on Windows)
 
-nnoremap <leader>g :set operatorfunc=GrepOperator<cr>g@
-vnoremap <leader>g :<c-u>call GrepOperator(visualmode())<cr>
+nnoremap <leader>g :set operatorfunc=<SID>GrepOperator<cr>g@
+vnoremap <leader>g :<c-u>call <SID>GrepOperator(visualmode())<cr>
 
-function! GrepOperator(type)
+function! s:GrepOperator(type)
+	let saved_unnamed_register = @@
+
 	if a:type ==# 'v'
 		execute "normal! `<v`>y"
 	elseif a:type ==# 'char'
@@ -20,4 +22,6 @@ function! GrepOperator(type)
 		silent execute "grep! -R " . shellescape(@@) . " ."
 	endif
 	copen 15
+
+	let @@ = saved_unnamed_register
 endfunction
