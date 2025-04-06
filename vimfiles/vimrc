@@ -1,10 +1,6 @@
 " Wayne Robison
 " Personalized vimrc file
 
-" Set to work with the Vim-related packages available in Debian.
-" (No error if not in Debian)
-runtime! debian.vim
-
 set nocompatible " Use Vim default settings.
 
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -16,11 +12,7 @@ set tabstop=4
 set shiftwidth=4
 set noexpandtab " Prefer tabs over spaces by default. Shift-F6 is mapped to toggle.
 
-if has("vms")
-	set nobackup " do not keep a backup file, use versions instead
-else
-	set backup " keep a backup file
-endif
+set backup " keep a backup file
 
 " Put undo, swap, and backup files in a system directory instead of in the current directory.
 let uservimdir = fnamemodify($MYVIMRC, ':p:h')
@@ -31,7 +23,7 @@ execute 'set undodir^=' . uservimdir . '/.undo//'
 set history=50 " keep 50 lines of command line history
 set showcmd " display incomplete commands
 set showmatch " Show matching brackets.
-" Do case sensitive matching by default (I've mapped Shift-F4 to toggle this).
+" Do case sensitive matching by default (I've mapped <leader>ti to toggle this).
 set noignorecase
 " Don't do smart case matching (that's when any captials make it case sensitive, even when ignorecase is on).
 set nosmartcase
@@ -124,9 +116,6 @@ if has("autocmd")
 	" Put these in an autocmd group, so that we can delete them easily.
 	augroup vimrcEx
 		au!
-
-		" For all text files set 'textwidth' to 78 characters.
-		autocmd FileType text setlocal textwidth=78
 
 		" When editing a file, always jump to the last known cursor position.
 		" Don't do it when the position is invalid or when inside an event handler
