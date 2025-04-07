@@ -32,3 +32,10 @@ vim.keymap.set("i", "<A-k>", "<ESC>:m -2<CR>gi")
 vim.keymap.set("i", "<A-j>", "<ESC>:m +<CR>gi")
 vim.keymap.set("x", "<A-k>", ":m '<-2<CR>gv")
 vim.keymap.set("x", "<A-j>", ":m '>+<CR>gv")
+
+-- Mappings for sourcing the current file or running the current or highlighted Lua lines.
+-- These are from the suggestions in TJ DeVries' video:
+-- [Everything You Need To Start Writing Lua](https://youtu.be/CuWfgiwI73Q?si=9VGWKluwNvZtkfvl)
+vim.keymap.set("n", "<Leader><Leader>x", "<cmd>source %<CR>")
+vim.keymap.set("n", "<Leader>x", ":.lua<CR>")
+vim.keymap.set("v", "<Leader>x", ":lua<CR>")
