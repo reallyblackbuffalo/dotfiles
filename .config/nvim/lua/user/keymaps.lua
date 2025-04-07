@@ -1,3 +1,7 @@
+-- Set leader and local leader to space
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Toggle Show Whitespace
 vim.keymap.set("n", "<Leader>ts", ":set list! list?<CR>")
 
@@ -7,8 +11,8 @@ vim.keymap.set("n", "<Leader>tt", ":set expandtab! expandtab?<CR>")
 -- Toggle explorer
 vim.keymap.set("n", "<Leader>e", ":Lexplore 15<CR>")
 
--- Press Space to turn off highlighting and clear any message already displayed.
-vim.keymap.set("n", "<Space>", ":nohlsearch<Bar>:echo<CR>", { silent = true })
+-- Press Space twice to turn off highlighting and clear any message already displayed.
+vim.keymap.set("n", "<Leader><Leader>", ":nohlsearch<Bar>:echo<CR>", { silent = true })
 
 -- Toggle Highlighting, and show current value.
 vim.keymap.set("n", "<Leader>th", ":set hlsearch! hlsearch?<CR>")
@@ -34,8 +38,8 @@ vim.keymap.set("x", "<A-k>", ":m '<-2<CR>gv")
 vim.keymap.set("x", "<A-j>", ":m '>+<CR>gv")
 
 -- Mappings for sourcing the current file or running the current or highlighted Lua lines.
--- These are from the suggestions in TJ DeVries' video:
+-- These are originally from the suggestions in TJ DeVries' video:
 -- [Everything You Need To Start Writing Lua](https://youtu.be/CuWfgiwI73Q?si=9VGWKluwNvZtkfvl)
-vim.keymap.set("n", "<Leader><Leader>x", "<cmd>source %<CR>")
+vim.keymap.set("n", "<Leader>sf", "<cmd>source %<CR>")
 vim.keymap.set("n", "<Leader>x", ":.lua<CR>")
 vim.keymap.set("v", "<Leader>x", ":lua<CR>")
