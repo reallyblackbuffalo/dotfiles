@@ -4,6 +4,9 @@ vim.keymap.set("n", "<Leader>ts", ":set list! list?<CR>")
 -- Toggle Tabs
 vim.keymap.set("n", "<Leader>tt", ":set expandtab! expandtab?<CR>")
 
+-- Toggle explorer
+vim.keymap.set("n", "<Leader>e", ":Lexplore 15<CR>")
+
 -- Press Space to turn off highlighting and clear any message already displayed.
 vim.keymap.set("n", "<Space>", ":nohlsearch<Bar>:echo<CR>", { silent = true })
 
