@@ -9,7 +9,7 @@ vim.keymap.set("n", "<Leader>ts", ":set list! list?<CR>")
 vim.keymap.set("n", "<Leader>tt", ":set expandtab! expandtab?<CR>")
 
 -- Toggle explorer
-vim.keymap.set("n", "<Leader>e", ":Lexplore 15<CR>")
+vim.keymap.set("n", "<Leader>e", ":Lexplore 30<CR>")
 
 -- Press Space twice to turn off highlighting and clear any message already displayed.
 vim.keymap.set("n", "<Leader><Leader>", ":nohlsearch<Bar>:echo<CR>", { silent = true })

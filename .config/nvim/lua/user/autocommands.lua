@@ -8,7 +8,8 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function()
 		local current_line = vim.fn.line([['"]])
 		local last_line = vim.fn.line("$")
-		if current_line > 1 and current_line <= last_line then
+		local buffer_name = vim.api.nvim_buf_get_name(0)
+		if not buffer_name:match("COMMIT_EDITMSG") and current_line > 1 and current_line <= last_line then
 			vim.cmd([[normal! g`"]])
 		end
 	end,
