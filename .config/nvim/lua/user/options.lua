@@ -13,3 +13,4 @@ vim.opt.splitright = true
 vim.opt.showmatch = true
 vim.opt.number = true
 vim.opt.listchars = { tab = ">-", space = "·" }
+vim.opt.termguicolors = true
