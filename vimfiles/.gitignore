@@ -2,4 +2,6 @@
 *~
 .svn/
 .netrwhist
+autoload/
+plugged/
 tags
