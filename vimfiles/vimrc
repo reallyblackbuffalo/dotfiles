@@ -80,8 +80,11 @@ inoremap <A-j> <ESC>:m +<CR>gi
 xnoremap <A-k> :m '<-2<CR>gv
 xnoremap <A-j> :m '>+<CR>gv
 
+if &term ==? 'win32'
+	set termguicolors
+endif
 set t_Co=256
-colors mywombat
+colorscheme mywombat
 
 " Set gui specific settings (could go in a gvimrc file)
 if has("gui_running")
