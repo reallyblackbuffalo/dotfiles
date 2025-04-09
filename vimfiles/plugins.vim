@@ -14,6 +14,11 @@ if empty(glob(s:vimplug_path))
   endif
 endif
 
+augroup vim-plug-update
+	autocmd!
+	autocmd BufWritePost plugins.vim source <afile> | PlugUpdate
+augroup END
+
 call plug#begin()
 
 Plug 'preservim/nerdtree'
