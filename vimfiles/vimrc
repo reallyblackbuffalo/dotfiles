@@ -42,6 +42,19 @@ if v:version < 823
 	set encoding=utf-8
 endif
 
+" Set space as leader key
+noremap <Space> <Nop>
+let mapleader = " "
+let maplocalleader = " "
+
+" Mappings to open and source vimrc file or source the current file.
+nnoremap <Leader>ov :vsplit $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
+nnoremap <Leader>sf :source %<CR>
+
+" Mapping to open the previous buffer in a vertical split.
+nnoremap <Leader>op :vsplit #<CR>
+
 " Set things up for the list setting, which shows invisible things like tabs
 " and eol, etc.
 set listchars=tab:>-,space:·
@@ -56,9 +69,9 @@ let NERDTreeQuitOnOpen=1
 
 " Switch on highlighting the last used search pattern.
 set hlsearch
-" Press Space to turn off highlighting and clear any message already
+" Press Space twice to turn off highlighting and clear any message already
 " displayed.
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <Leader><Leader> :nohlsearch<Bar>:echo<CR>
 " Toggle Highlighting, and show current value.
 noremap <Leader>th :set hlsearch! hlsearch?<CR>
 " Toggle Ignorecase

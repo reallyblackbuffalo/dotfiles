@@ -42,3 +42,6 @@ vim.keymap.set("x", "<A-j>", ":m '>+<CR>gv")
 vim.keymap.set("n", "<Leader>sf", "<Cmd>source %<CR>")
 vim.keymap.set("n", "<Leader>x", "<Cmd>.lua<CR>")
 vim.keymap.set("v", "<Leader>x", ":lua<CR>")
+
+-- Open the previous buffer in a vertical split
+vim.keymap.set("n", "<Leader>op", "<Cmd>vsplit #<CR>")
