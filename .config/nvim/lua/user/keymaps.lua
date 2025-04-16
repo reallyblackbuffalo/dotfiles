@@ -4,13 +4,21 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Toggle Show Whitespace
-vim.keymap.set("n", "<Leader>ts", "<Cmd>set list! list?<CR>")
+if vim.g.vscode then
+    vim.keymap.set("n", "<Leader>ts", "<Cmd>lua require('vscode').action('editor.action.toggleRenderWhitespace')<CR>")
+else
+    vim.keymap.set("n", "<Leader>ts", "<Cmd>set list! list?<CR>")
+end
 
 -- Toggle Tabs
 vim.keymap.set("n", "<Leader>tt", "<Cmd>set expandtab! expandtab?<CR>")
 
 -- Toggle explorer
-vim.keymap.set("n", "<Leader>e", "<Cmd>Lexplore 30<CR>")
+if vim.g.vscode then
+    vim.keymap.set("n", "<Leader>e", "<Cmd>lua require('vscode').action('workbench.view.explorer')<CR>")
+else
+    vim.keymap.set("n", "<Leader>e", "<Cmd>Lexplore 30<CR>")
+end
 
 -- Press Space twice to turn off highlighting and clear any message already displayed.
 vim.keymap.set("n", "<Leader><Leader>", "<Cmd>nohlsearch<CR><Cmd>echo<CR>", { silent = true })
@@ -25,10 +33,10 @@ vim.keymap.set("n", "<Leader>ti", "<Cmd>set ignorecase! ignorecase?<CR>")
 vim.keymap.set("n", "<Leader>H", ":let @/='\\<<C-R>=expand(\"<cword>\")<CR>\\>'<CR>:set hls<CR>")
 
 -- Easier window navigation
-vim.keymap.set("n", "<C-H>", "<C-W>h")
-vim.keymap.set("n", "<C-J>", "<C-W>j")
-vim.keymap.set("n", "<C-K>", "<C-W>k")
-vim.keymap.set("n", "<C-L>", "<C-W>l")
+vim.keymap.set("n", "<C-H>", "<C-W>h", { remap = vim.g.vscode })
+vim.keymap.set("n", "<C-J>", "<C-W>j", { remap = vim.g.vscode })
+vim.keymap.set("n", "<C-K>", "<C-W>k", { remap = vim.g.vscode })
+vim.keymap.set("n", "<C-L>", "<C-W>l", { remap = vim.g.vscode })
 
 -- Move current line/selection up/down using Alt-k/j
 vim.keymap.set({ "n", "i" }, "<A-k>", "<Cmd>m -2<CR>")

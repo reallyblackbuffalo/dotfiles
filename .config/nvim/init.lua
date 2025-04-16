@@ -1,4 +1,6 @@
 require "user.options"
 require "user.keymaps"
 require "user.autocommands"
-require "user.lazy"
+if not vim.g.vscode then
+    require "user.lazy"
+end
