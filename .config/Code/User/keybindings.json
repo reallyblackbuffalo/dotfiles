@@ -1,0 +1,5 @@
+[
+    { "key": "alt+j", "command": "vscode-neovim.send", "when": "editorTextFocus", "args": "<A-j>", },
+    { "key": "alt+k", "command": "vscode-neovim.send", "when": "editorTextFocus", "args": "<A-k>", },
+    { "key": "ctrl+l", "command": "vscode-neovim.send", "when": "!editorTextFocus", "args": "<C-l>", },
+]
