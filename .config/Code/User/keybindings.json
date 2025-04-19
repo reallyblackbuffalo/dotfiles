@@ -1,5 +1,8 @@
 [
-    { "key": "alt+j", "command": "vscode-neovim.send", "when": "editorTextFocus", "args": "<A-j>", },
-    { "key": "alt+k", "command": "vscode-neovim.send", "when": "editorTextFocus", "args": "<A-k>", },
-    { "key": "ctrl+l", "command": "vscode-neovim.send", "when": "!editorTextFocus", "args": "<C-l>", },
+    { "key": "alt+j", "command": "vscode-neovim.send", "when": "neovim.init && editorTextFocus", "args": "<A-j>", },
+    { "key": "alt+k", "command": "vscode-neovim.send", "when": "neovim.init && editorTextFocus", "args": "<A-k>", },
+    { "key": "ctrl+l", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorTextFocus", "args": "<C-l>", },
+    { "key": "space e", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>e", },
+    { "key": "space b", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>b", },
+    { "key": "space f f", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>ff", },
 ]

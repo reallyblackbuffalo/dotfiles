@@ -18,3 +18,15 @@ vim.keymap.set("n", "<C-H>", "<C-W>h", { remap = true })
 vim.keymap.set("n", "<C-J>", "<C-W>j", { remap = true })
 vim.keymap.set("n", "<C-K>", "<C-W>k", { remap = true })
 vim.keymap.set("n", "<C-L>", "<C-W>l", { remap = true })
+
+-- Toggle the sidebar
+vim.keymap.set("n", "<Leader>b", "<Cmd>lua require('vscode').action('workbench.action.toggleSidebarVisibility')<CR>")
+
+-- Find Files (like telescope, but using VSCode's quick open file picker)
+vim.keymap.set("n", "<Leader>ff", "<Cmd>lua require('vscode').action('workbench.action.quickOpen')<CR>")
+
+-- Open the Command Palette
+vim.keymap.set("n", "<Leader>p", "<Cmd>lua require('vscode').action('workbench.action.showCommands')<CR>")
+
+-- Toggle the panel (for the terminal, etc)
+vim.keymap.set("n", "<Leader>j", "<Cmd>lua require('vscode').action('workbench.action.togglePanel')<CR>")
