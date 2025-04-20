@@ -6,11 +6,6 @@
 -- the right setting for me.
 vim.keymap.set("n", "<Leader>ts", "<Cmd>lua require('vscode').action('editor.action.toggleRenderWhitespace')<CR>")
 
--- Toggle file explorer
--- Use VSCode's builtin file explorer rather than trying to use netrw, which opens
--- in a separate tab due to it being a new buffer.
-vim.keymap.set("n", "<Leader>e", "<Cmd>lua require('vscode').action('workbench.view.explorer')<CR>")
-
 -- Easier window navigation
 -- Need to remap these with recursive mapping enabled so that the special mappings
 -- the vscode-neovim extension sets up for the window commands take effect.
@@ -22,6 +17,17 @@ vim.keymap.set("n", "<C-L>", "<C-W>l", { remap = true })
 -- Toggle the sidebar
 vim.keymap.set("n", "<Leader>b", "<Cmd>lua require('vscode').action('workbench.action.toggleSidebarVisibility')<CR>")
 
+-- Toggle file explorer focus
+-- Use VSCode's builtin file explorer rather than trying to use netrw, which opens
+-- in a separate tab due to it being a new buffer.
+vim.keymap.set("n", "<Leader>e", "<Cmd>lua require('vscode').action('workbench.view.explorer')<CR>")
+
+-- Toggle search in sidebar
+vim.keymap.set("n", "<Leader>F", "<Cmd>lua require('vscode').action('workbench.view.search')<CR>")
+
+-- Toggle Git/Source Control in sidebar
+vim.keymap.set("n", "<Leader>g", "<Cmd>lua require('vscode').action('workbench.view.scm')<CR>")
+
 -- Find Files (like telescope, but using VSCode's quick open file picker)
 vim.keymap.set("n", "<Leader>ff", "<Cmd>lua require('vscode').action('workbench.action.quickOpen')<CR>")
 
@@ -30,3 +36,6 @@ vim.keymap.set("n", "<Leader>p", "<Cmd>lua require('vscode').action('workbench.a
 
 -- Toggle the panel (for the terminal, etc)
 vim.keymap.set("n", "<Leader>j", "<Cmd>lua require('vscode').action('workbench.action.togglePanel')<CR>")
+
+-- Open keyboard shortcuts
+vim.keymap.set("n", "<Leader>ks", "<Cmd>lua require('vscode').action('workbench.action.openGlobalKeybindings')<CR>")
