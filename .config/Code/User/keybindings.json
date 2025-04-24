@@ -7,13 +7,15 @@
     { "key": "ctrl+k", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorTextFocus", "args": "<C-k>", },
     { "key": "ctrl+l", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorTextFocus", "args": "<C-l>", },
     { "key": "space b", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>b", },
-    { "key": "space e", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>e", },
+    { "key": "space shift+e", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>E", },
     { "key": "space shift+f", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>F", },
     { "key": "space g", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>g", },
     { "key": "space f f", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>ff", },
     { "key": "space p", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>p", },
     { "key": "space j", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>j", },
     { "key": "space k s", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !inKeyBindings && !editorFocus && !inputFocus", "args": "<Space>ks" },
+    { "key": "space e n", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>en", },
+    { "key": "space e d", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>ed", },
 
     // Keybindings editor navigation
     { "key": "escape", "command": "keybindings.editor.focusKeybindings", "when": "neovim.init && inKeybindings && inKeybindingsSearch", },

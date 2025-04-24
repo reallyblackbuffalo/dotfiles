@@ -9,9 +9,14 @@ return {
 		config = function()
 			require("telescope").load_extension("fzy_native")
 			vim.keymap.set("n", "<Leader>ff", require('telescope.builtin').find_files)
-			vim.keymap.set("n", "<Leader>on", function()
+			vim.keymap.set("n", "<Leader>en", function()
 				require('telescope.builtin').find_files {
 					cwd = vim.fn.stdpath("config")
+				}
+			end)
+			vim.keymap.set("n", "<Leader>ed", function()
+				require('telescope.builtin').find_files {
+					cwd = vim.fn.expand('$HOME') .. '/.dotfiles'
 				}
 			end)
 			vim.keymap.set("n", "<Leader>fb", require('telescope.builtin').buffers)

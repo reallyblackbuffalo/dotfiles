@@ -48,7 +48,7 @@ let mapleader = " "
 let maplocalleader = " "
 
 " Mappings to open and source vimrc file or source the current file.
-nnoremap <Leader>ov :vsplit $MYVIMRC<CR>
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 nnoremap <Leader>sf :source %<CR>
 
@@ -64,7 +64,7 @@ noremap <Leader>ts :set list! list?<CR>
 noremap <Leader>tt :set expandtab! expandtab?<CR>
 
 " NERDTree Mappings
-noremap <Leader>e :NERDTreeToggle<CR>
+noremap <Leader>E :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
 
 " Switch on highlighting the last used search pattern.
