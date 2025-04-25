@@ -16,6 +16,7 @@
     { "key": "space k s", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !inKeyBindings && !editorFocus && !inputFocus", "args": "<Space>ks" },
     { "key": "space e n", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>en", },
     { "key": "space e d", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>ed", },
+    { "key": "space shift+w", "command": "vscode-neovim.send", "when": "neovim.init && neovim.mode == 'normal' && !editorFocus && !inputFocus", "args": "<Space>W", },
 
     // Keybindings editor navigation
     { "key": "escape", "command": "keybindings.editor.focusKeybindings", "when": "neovim.init && inKeybindings && inKeybindingsSearch", },

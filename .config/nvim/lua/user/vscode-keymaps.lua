@@ -62,3 +62,6 @@ vim.keymap.set("n", "<Leader>en", open_folder_rhs(vim.fn.stdpath('config')))
 
 -- Open dotfiles config
 vim.keymap.set("n", "<Leader>ed", open_folder_rhs(vim.fn.expand('$HOME') .. '/.dotfiles'))
+
+-- Close the current VSCode window.
+vim.keymap.set("n", "<Leader>W", vscode_action_rhs('workbench.action.closeWindow'))
