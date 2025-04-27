@@ -20,7 +20,6 @@ $homePath = Split-Path -Parent $PWD
 SafeMake-Symlink "vimfiles" "$homePath\vimfiles"
 SafeMake-Symlink "vimfiles" "$homePath\.vim"
 SafeMake-Symlink ".config\nvim" "$homePath\AppData\Local\nvim"
-SafeMake-Symlink ".config\Code\User\keybindings.json" "$homePath\AppData\Roaming\Code\User\keybindings.json"
 
 if ($Host.Name -eq "ConsoleHost") {
     Write-Host "`nPress any key to continue..."

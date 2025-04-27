@@ -1,7 +1,12 @@
--- Set leader and local leader to space
+-- Set leader and local leader to space (when updating, be sure to also update vscode_leader_key below)
 vim.keymap.set("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+-- Define a variable for the leader key representation in VSCode
+if vim.g.vscode then
+    vim.g.vscode_leader_key = "space"
+end
 
 -- Toggle Show Whitespace
 vim.keymap.set("n", "<Leader>ts", "<Cmd>set list! list?<CR>")
