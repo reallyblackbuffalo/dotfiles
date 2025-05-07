@@ -10,7 +10,7 @@ set laststatus=2
 " Tab Settings
 set tabstop=4
 set shiftwidth=4
-set noexpandtab " Prefer tabs over spaces by default. Shift-F6 is mapped to toggle.
+set noexpandtab " Prefer tabs over spaces by default. <Leader>tt is mapped to toggle.
 
 set backup " keep a backup file
 
