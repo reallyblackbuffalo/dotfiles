@@ -23,7 +23,7 @@ let mapleader = " "
 let maplocalleader = " "
 
 " Mappings to open and source vsvimrc file
-nnoremap <Leader>ev :e $USERPROFILE/.dotfiles/vimfiles/vsvimrc<CR> | :vsplit<CR>
+nnoremap <Leader>ev :tabedit $USERPROFILE/.dotfiles/vimfiles/vsvimrc<CR>
 nnoremap <Leader>sv :source $USERPROFILE/.dotfiles/vimfiles/vsvimrc<CR>
 
 set hlsearch
