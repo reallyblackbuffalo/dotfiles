@@ -43,7 +43,8 @@ if v:version < 823
 endif
 
 " Set space as leader key
-noremap <Space> <Nop>
+nnoremap <Space> <Nop>
+vnoremap <Space> <Nop>
 let mapleader = " "
 let maplocalleader = " "
 
@@ -59,25 +60,30 @@ nnoremap <Leader>op :vsplit #<CR>
 " and eol, etc.
 set listchars=tab:>-,space:·
 " Toggle Show whitespace
-noremap <Leader>ts :set list! list?<CR>
+nnoremap <Leader>ts :set list! list?<CR>
+vnoremap <Leader>ts :set list! list?<CR>
 " Toggle Tabs
-noremap <Leader>tt :set expandtab! expandtab?<CR>
+nnoremap <Leader>tt :set expandtab! expandtab?<CR>
+vnoremap <Leader>tt :set expandtab! expandtab?<CR>
 
 " NERDTree Mappings
-noremap <Leader>E :NERDTreeToggle<CR>
+nnoremap <Leader>E NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
 
 " Switch on highlighting the last used search pattern.
 set hlsearch
 " Press Space twice to turn off highlighting and clear any message already
 " displayed.
-nnoremap <silent> <Leader><Leader> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <Leader><Leader> :nohlsearch<Bar>echo<CR>
+vnoremap <silent> <Leader><Leader> :nohlsearch<Bar>echo<CR>
 " Toggle Highlighting, and show current value.
-noremap <Leader>th :set hlsearch! hlsearch?<CR>
+nnoremap <Leader>th :set hlsearch! hlsearch?<CR>
+vnoremap <Leader>th :set hlsearch! hlsearch?<CR>
 " Toggle Ignorecase
-noremap <Leader>ti :set ignorecase! ignorecase?<CR>
+nnoremap <Leader>ti :set ignorecase! ignorecase?<CR>
+vnoremap <Leader>ti :set ignorecase! ignorecase?<CR>
 " Highlight all occurrences of the current word.
-noremap <Leader>H :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+nnoremap <Leader>H :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " Easier window navigation
 nnoremap <C-H> <C-W>h
@@ -86,8 +92,8 @@ nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 
 " Move current line/selection up/down using Alt-k/j
-noremap <A-k> :m -2<CR>
-noremap <A-j> :m +<CR>
+nnoremap <A-k> :m -2<CR>
+nnoremap <A-j> :m +<CR>
 inoremap <A-k> <ESC>:m -2<CR>gi
 inoremap <A-j> <ESC>:m +<CR>gi
 xnoremap <A-k> :m '<-2<CR>gv

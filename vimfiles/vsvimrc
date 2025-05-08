@@ -18,7 +18,8 @@ set nosmartcase
 set number
 
 " Set space as leader key
-noremap <Space> <Nop>
+nnoremap <Space> <Nop>
+vnoremap <Space> <Nop>
 let mapleader = " "
 let maplocalleader = " "
 
@@ -29,11 +30,16 @@ nnoremap <Leader>sv :source $USERPROFILE/.dotfiles/vimfiles/vsvimrc<CR>
 set hlsearch
 " Press Space twice to turn off highlighting
 nnoremap <Leader><Leader> :nohlsearch<CR>
+vnoremap <Leader><Leader> :nohlsearch<CR>
 
-noremap <Leader>ts :set list! list?<CR>
-noremap <Leader>tt :set expandtab! expandtab?<CR>
-noremap <Leader>th :set hlsearch! hlsearch?<CR>
-noremap <Leader>ti :set ignorecase! ignorecase?<CR>
+nnoremap <Leader>ts :set list! list?<CR>
+vnoremap <Leader>ts :set list! list?<CR>
+nnoremap <Leader>tt :set expandtab! expandtab?<CR>
+vnoremap <Leader>tt :set expandtab! expandtab?<CR>
+nnoremap <Leader>th :set hlsearch! hlsearch?<CR>
+vnoremap <Leader>th :set hlsearch! hlsearch?<CR>
+nnoremap <Leader>ti :set ignorecase! ignorecase?<CR>
+vnoremap <Leader>ti :set ignorecase! ignorecase?<CR>
 
 " Move current line/selection up/down using Alt-k/j
 nnoremap <A-k> :m -2<CR>
