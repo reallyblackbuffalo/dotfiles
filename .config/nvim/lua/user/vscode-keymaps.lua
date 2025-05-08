@@ -103,9 +103,26 @@ local function write_keybindings_to_file()
 
         // Read the existing keybindings.json file
         let keybindings = [];
+        
         if (fs.existsSync(filePath)) {
-            const content = fs.readFileSync(filePath, 'utf8');
-            keybindings = JSON.parse(content);
+            try {
+                const content = fs.readFileSync(filePath, 'utf8');
+                
+                // Remove comments before parsing as JSON
+                const jsonContent = content.replace(/\s*\/\/.*|\s*\/\*[\s\S]*?\*\//g, '');
+                
+                keybindings = JSON.parse(jsonContent);
+                
+                // Handle parsing errors
+                if (!Array.isArray(keybindings)) {
+                    console.error('keybindings.json does not contain an array');
+                    throw new Error('keybindings.json does not contain an array');
+                }
+            } catch (e) {
+                console.error('Failed to parse keybindings.json:', e);
+                vscode.window.showErrorMessage('Failed to parse keybindings.json. No changes were made.');
+                return;
+            }
         }
 
         // Remove all keybindings with the "custom-neovim-keybinding" clause in the "when" condition
