@@ -6,24 +6,42 @@ set laststatus=2
 
 set tabstop=4
 set shiftwidth=4
-set noexpandtab " Prefer tabs over spaces by default. <Space>tt is mapped to toggle.
+set noexpandtab " Prefer tabs over spaces by default. <Leader>tt is mapped to toggle.
 
 set history=50
 
-" Do case sensitive matching by default (I've mapped <Space>ti to toggle this).
+" Do case sensitive matching by default (I've mapped <Leader>ti to toggle this).
 set noignorecase
 " Don't do smart case matching (that's when any captials in the search pattern make it case sensitive, even when ignorecase is on).
 set nosmartcase
 
 set number
 
-set hlsearch
-nnoremap <Space><Space> :nohlsearch<CR>
+" Set space as leader key
+noremap <Space> <Nop>
+let mapleader = " "
+let maplocalleader = " "
 
-noremap <Space>ts :set list! list?<CR>
-noremap <Space>tt :set expandtab! expandtab?<CR>
-noremap <Space>th :set hlsearch! hlsearch?<CR>
-noremap <Space>ti :set ignorecase! ignorecase?<CR>
+" Mappings to open and source vsvimrc file
+nnoremap <Leader>ev :e $USERPROFILE/.dotfiles/vimfiles/vsvimrc<CR> | :vsplit<CR>
+nnoremap <Leader>sv :source $USERPROFILE/.dotfiles/vimfiles/vsvimrc<CR>
+
+set hlsearch
+" Press Space twice to turn off highlighting
+nnoremap <Leader><Leader> :nohlsearch<CR>
+
+noremap <Leader>ts :set list! list?<CR>
+noremap <Leader>tt :set expandtab! expandtab?<CR>
+noremap <Leader>th :set hlsearch! hlsearch?<CR>
+noremap <Leader>ti :set ignorecase! ignorecase?<CR>
+
+" Move current line/selection up/down using Alt-k/j
+noremap <A-k> :m -2<CR>
+noremap <A-j> :m +<CR>
+inoremap <A-k> <ESC>:m -2<CR>gi
+inoremap <A-j> <ESC>:m +<CR>gi
+xnoremap <A-k> :m '<-2<CR>gv
+xnoremap <A-j> :m '>+<CR>gv
 
 set visualbell
 
