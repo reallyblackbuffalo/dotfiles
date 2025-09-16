@@ -84,7 +84,7 @@ end
 
 -- Helper function to define a passthrough keybinding
 local function define_passthrough_keybinding(lhs, when_clause)
-    local common_conditions = "custom-neovim-keybinding && neovim.init"
+    local common_conditions = "neovim.init"
     local full_when_clause = common_conditions
     if when_clause and when_clause ~= "" then
         full_when_clause = full_when_clause .. " && " .. when_clause
