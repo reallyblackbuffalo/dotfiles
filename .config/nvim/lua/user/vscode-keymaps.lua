@@ -163,8 +163,8 @@ vim.keymap.set("n", "<Leader>ts", vscode_action_rhs('editor.action.toggleRenderW
 -- Passthroughs for Alt-k/j to move lines up/down
 -- The keymaps are already set up and don't need to be different when using VSCode, but we do need to add the passthroughs
 -- to make them work in VSCode.
-define_passthrough_keybinding("<A-k>", "neovim.init && editorTextFocus")
-define_passthrough_keybinding("<A-j>", "neovim.init && editorTextFocus")
+define_passthrough_keybinding("<A-k>", "editorTextFocus")
+define_passthrough_keybinding("<A-j>", "editorTextFocus")
 
 -- Easier window navigation
 -- Need to remap these with recursive mapping enabled so that the special mappings
