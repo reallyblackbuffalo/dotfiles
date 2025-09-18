@@ -160,6 +160,10 @@ end
 -- the right setting for me.
 vim.keymap.set("n", "<Leader>ts", vscode_action_rhs('editor.action.toggleRenderWhitespace'))
 
+-- Dismiss GitHub Copilot next edit suggestions with Escape in normal mode
+-- This is needed because the vscode-neovim extension captures the Escape key in normal mode before it triggers the dismissal of the NES.
+vim.keymap.set("n", "<Esc>", vscode_action_rhs("editor.action.inlineSuggest.hide"), { silent = true })
+
 -- Passthroughs for Alt-k/j to move lines up/down
 -- The keymaps are already set up and don't need to be different when using VSCode, but we do need to add the passthroughs
 -- to make them work in VSCode.
