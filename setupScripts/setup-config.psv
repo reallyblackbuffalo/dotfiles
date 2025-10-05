@@ -1,0 +1,6 @@
+# id      | source        | platform | dest                         | tags
+vim       | vimfiles      | windows  | ${USERPROFILE}\vimfiles      | vim
+vim       | vimfiles      | windows  | ${USERPROFILE}\.vim          | vim
+vim       | vimfiles      | unix     | ${HOME}/.vim                 | vim
+nvim      | .config/nvim  | windows  | ${LOCALAPPDATA}\nvim         | nvim
+nvim      | .config/nvim  | unix     | ${HOME}/.config/nvim         | nvim
