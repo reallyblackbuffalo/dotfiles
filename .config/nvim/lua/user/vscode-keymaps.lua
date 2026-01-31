@@ -228,8 +228,8 @@ define_keybinding("i", "keybindings.editor.searchKeybindings", "neovim.init && i
 define_keybinding("escape", "workbench.action.closeActiveEditor", "neovim.init && inKeybindings && !inputFocus")
 
 -- Panel navigation
-define_keybinding("tab", "workbench.action.nextPanelView", "panelFocus")
-define_keybinding("shift+tab", "workbench.action.previousPanelView", "panelFocus")
+define_keybinding("ctrl+tab", "workbench.action.nextPanelView", "panelFocus")
+define_keybinding("ctrl+shift+tab", "workbench.action.previousPanelView", "panelFocus")
 
 -- Write all keybindings to the JSON file at the end
 write_keybindings_to_file()
