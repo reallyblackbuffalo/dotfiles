@@ -50,3 +50,12 @@ vim.keymap.set("v", "<Leader>x", ":lua<CR>")
 
 -- Open the previous buffer in a vertical split
 vim.keymap.set("n", "<Leader>op", "<Cmd>vsplit #<CR>")
+
+-- Open a terminal buffer in a vertical split.
+vim.keymap.set("n", "<Leader>ot", function()
+	vim.cmd.vnew()
+	vim.cmd.terminal()
+end)
+
+-- Switch to normal mode more easily in terminal buffers.
+vim.keymap.set("t", "<Esc><Esc><Esc>", "<C-\\><C-n>")
