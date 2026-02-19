@@ -58,4 +58,4 @@ vim.keymap.set("n", "<Leader>ot", function()
 end)
 
 -- Switch to normal mode more easily in terminal buffers.
-vim.keymap.set("t", "<Esc><Esc><Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<C-n>", "<C-\\><C-n>")
