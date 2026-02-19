@@ -20,4 +20,10 @@ require("lazy").setup({
 	spec = {
 		{ import = "user.plugins" },
 	},
+	rocks = {
+		enabled = false,
+	},
+	ui = {
+		border = "rounded",
+	},
 })
