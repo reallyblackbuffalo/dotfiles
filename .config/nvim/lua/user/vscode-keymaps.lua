@@ -94,6 +94,15 @@ local function define_passthrough_keybinding(lhs, when_clause)
     define_keybinding(build_key_string(lhs), "vscode-neovim.send", full_when_clause, lhs:gsub("<Leader>", vim.fn.keytrans(vim.g.mapleader)))
 end
 
+local function test()
+    vscode.eval([[
+        const workspace = vscode.workspace.name;
+        vscode.window.showInformationMessage('Test function called from Neovim ' + workspace);
+    ]])
+end
+
+vim.keymap.set("n", "<Leader>vt", test)
+
 -- Function to write keybindings to the JSON file
 local function write_keybindings_to_file()
     vscode.eval([[
