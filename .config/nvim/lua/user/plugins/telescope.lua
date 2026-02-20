@@ -16,7 +16,7 @@ return {
 			vim.keymap.set("n", "<Leader>ff", require('telescope.builtin').find_files)
 			vim.keymap.set("n", "<Leader>en", function()
 				require('telescope.builtin').find_files {
-					cwd = vim.fn.stdpath("config")
+					cwd = vim.loop.fs_realpath(vim.fn.stdpath("config"))
 				}
 			end)
 			vim.keymap.set("n", "<Leader>ed", function()
