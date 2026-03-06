@@ -8,24 +8,9 @@ param(
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 
-# Wait and exit helper (pauses when run interactively)
-function Wait-ForKeyAndExit {
-    param(
-        [int]$Code = 0,
-        [string]$Message = ''
-    )
-    if ($Message) { Write-Host $Message }
-    if ($Host.Name -eq "ConsoleHost") {
-        Write-Host "`nPress any key to continue..."
-        $Host.UI.RawUI.FlushInputBuffer()
-        $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyUp") > $null
-    }
-    exit $Code
-}
-
 # Read PSV lines
 $configPath = Join-Path $scriptDir 'setup-config.psv'
-if (-not (Test-Path $configPath)) { Wait-ForKeyAndExit -Code 2 -Message "Config file not found: $configPath" }
+if (-not (Test-Path $configPath)) { Write-Host "Config file not found: $configPath"; pause; exit 2 }
 $lines = Get-Content $configPath -ErrorAction Stop | ForEach-Object { $_.Trim() } | Where-Object { $_ -notmatch '^[#\s]*$' -and $_ -notmatch '^[#]' }
 
 # Platform for this wrapper is 'windows'
@@ -137,7 +122,7 @@ function New-SafeSymlink {
     # Attempt to create a symbolic link via New-Item
     try {
         New-Item -ItemType SymbolicLink -Path $dest -Target $src -ErrorAction Stop | Out-Null
-    Write-Host "Created symlink $dest -> $src"
+        Write-Host "Created symlink $dest -> $src"
         return $true
     } catch {
         # If source is a directory, attempt junction fallback
@@ -185,7 +170,7 @@ foreach ($line in $lines) {
     }
 }
 
-    Write-Host "Planned links:"; $planned | ForEach-Object { Write-Host "  $($_.id): $($_.dest) -> $($_.src)" }
+Write-Host "Planned links:"; $planned | ForEach-Object { Write-Host "  $($_.id): $($_.dest) -> $($_.src)" }
 
 # Build set of planned destinations (use the resolved dests already stored in the plan)
 $plannedDestSet = @{}
@@ -244,4 +229,5 @@ if (Test-Path $nerdFontScript) {
 }
 
 # Final pause & exit
-if (-not $allSuccess) { Wait-ForKeyAndExit -Code 1 } else { Wait-ForKeyAndExit -Code 0 }
+pause
+if (-not $allSuccess) { exit 1 } else { exit 0 }
