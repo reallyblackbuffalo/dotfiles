@@ -205,63 +205,72 @@ if (-not $SkipTerminalConfig) {
     if (-not $settingsFile) {
         Write-Host "Windows Terminal settings not found. Skipping terminal configuration."
     } else {
-        Write-Host "Configuring Windows Terminal ($settingsFile)..."
         $content = Get-Content -Path $settingsFile -Raw
 
-        $fontBlock = "`"font`":`n            {`n                `"face`": `"$FontName`"`n            }"
-        $modified = $false
+        # Check if defaults already has the right font and no non-NF overrides exist
+        $defaultsHasFont = $content -match '"defaults"\s*:\s*\{[^}]*"face"\s*:\s*"' + [regex]::Escape($FontName) + '"'
+        $hasNonNFOverrides = $content -match '"face"\s*:\s*"Cascadia (Mono|Code)(?!\s*NF)"'
 
-        # Case 1: defaults already has a "font" block — replace it
-        if ($content -match '("defaults"\s*:\s*\{[^}]*)"font"\s*:\s*\{[^}]*\}') {
-            $content = $content -replace '("defaults"\s*:\s*\{[^}]*)"font"\s*:\s*\{[^}]*\}', "`$1$fontBlock"
-            $modified = $true
-        }
-        # Case 2: defaults exists but is empty — inject font into it
-        elseif ($content -match '"defaults"\s*:\s*\{\s*\}') {
-            $content = $content -replace '"defaults"\s*:\s*\{\s*\}', "`"defaults`":`n        {`n            $fontBlock`n        }"
-            $modified = $true
-        }
-        # Case 3: defaults exists with other content but no font — append font
-        elseif ($content -match '("defaults"\s*:\s*\{)(\s*)') {
-            $content = $content -replace '("defaults"\s*:\s*\{)(\s*)', "`$1`$2$fontBlock,`$2"
-            $modified = $true
-        }
+        if ($defaultsHasFont -and -not $hasNonNFOverrides) {
+            Write-Host "Windows Terminal already configured for '$FontName'."
+        } else {
+            Write-Host "Configuring Windows Terminal ($settingsFile)..."
 
-        # Replace non-NF Cascadia font overrides with NF equivalents in profiles
-        $fontReplacements = @{
-            'Cascadia Mono'  = 'Cascadia Mono NF'
-            'Cascadia Code'  = 'Cascadia Code NF'
-        }
+            $fontBlock = "`"font`":`n            {`n                `"face`": `"$FontName`"`n            }"
+            $modified = $false
 
-        $defaultsEnd = $content.IndexOf('"defaults"')
-        if ($defaultsEnd -ge 0) {
-            $listStart = $content.IndexOf('"list"', $defaultsEnd)
-            if ($listStart -ge 0) {
-                $before = $content.Substring(0, $listStart)
-                $after = $content.Substring($listStart)
-
-                foreach ($oldFont in $fontReplacements.Keys) {
-                    $newFont = $fontReplacements[$oldFont]
-                    $replacePattern = '("face"\s*:\s*")' + [regex]::Escape($oldFont) + '(?!\s*NF)(")'
-                    $after = [regex]::Replace($after, $replacePattern, "`$1$newFont`$2")
-                }
-
-                # Remove per-profile font blocks that are now redundant (match the default)
-                $redundantPattern = ',?\s*"font"\s*:\s*\{\s*"face"\s*:\s*"' + [regex]::Escape($FontName) + '"\s*\}'
-                $after = [regex]::Replace($after, $redundantPattern, '')
-                $after = $after -replace ',(\s*})', '$1'
-                $after = $after -replace '{(\s*),', '{$1'
-
-                $content = $before + $after
+            # Case 1: defaults already has a "font" block — replace it
+            if ($content -match '("defaults"\s*:\s*\{[^}]*)"font"\s*:\s*\{[^}]*\}') {
+                $content = $content -replace '("defaults"\s*:\s*\{[^}]*)"font"\s*:\s*\{[^}]*\}', "`$1$fontBlock"
                 $modified = $true
             }
-        }
+            # Case 2: defaults exists but is empty — inject font into it
+            elseif ($content -match '"defaults"\s*:\s*\{\s*\}') {
+                $content = $content -replace '"defaults"\s*:\s*\{\s*\}', "`"defaults`":`n        {`n            $fontBlock`n        }"
+                $modified = $true
+            }
+            # Case 3: defaults exists with other content but no font — append font
+            elseif ($content -match '("defaults"\s*:\s*\{)(\s*)') {
+                $content = $content -replace '("defaults"\s*:\s*\{)(\s*)', "`$1`$2$fontBlock,`$2"
+                $modified = $true
+            }
 
-        if ($modified) {
-            Set-Content -Path $settingsFile -Value $content -NoNewline -Encoding UTF8
-            Write-Host "Windows Terminal default font set to '$FontName'."
-        } else {
-            Write-Warning "Could not locate 'defaults' in Windows Terminal settings. You may need to set the font manually."
+            # Replace non-NF Cascadia font overrides with NF equivalents in profiles
+            $fontReplacements = @{
+                'Cascadia Mono'  = 'Cascadia Mono NF'
+                'Cascadia Code'  = 'Cascadia Code NF'
+            }
+
+            $defaultsEnd = $content.IndexOf('"defaults"')
+            if ($defaultsEnd -ge 0) {
+                $listStart = $content.IndexOf('"list"', $defaultsEnd)
+                if ($listStart -ge 0) {
+                    $before = $content.Substring(0, $listStart)
+                    $after = $content.Substring($listStart)
+
+                    foreach ($oldFont in $fontReplacements.Keys) {
+                        $newFont = $fontReplacements[$oldFont]
+                        $replacePattern = '("face"\s*:\s*")' + [regex]::Escape($oldFont) + '(?!\s*NF)(")'
+                        $after = [regex]::Replace($after, $replacePattern, "`$1$newFont`$2")
+                    }
+
+                    # Remove per-profile font blocks that are now redundant (match the default)
+                    $redundantPattern = ',?\s*"font"\s*:\s*\{\s*"face"\s*:\s*"' + [regex]::Escape($FontName) + '"\s*\}'
+                    $after = [regex]::Replace($after, $redundantPattern, '')
+                    $after = $after -replace ',(\s*})', '$1'
+                    $after = $after -replace '{(\s*),', '{$1'
+
+                    $content = $before + $after
+                    $modified = $true
+                }
+            }
+
+            if ($modified) {
+                Set-Content -Path $settingsFile -Value $content -NoNewline -Encoding UTF8
+                Write-Host "Windows Terminal default font set to '$FontName'."
+            } else {
+                Write-Warning "Could not locate 'defaults' in Windows Terminal settings. You may need to set the font manually."
+            }
         }
     }
 }
