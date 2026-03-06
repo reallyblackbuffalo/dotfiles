@@ -8,7 +8,8 @@ Run the following commands in the home directory (on Windows):
 
 ## Install Nerd Font
 Some of the Neovim plugins require a [Nerd Font](https://github.com/ryanoasis/nerd-fonts) to show icons correctly.
-Putting the link/details for the Nerd Font I'm using here so that I have quick access to it when installing on a new machine:
-- https://github.com/microsoft/cascadia-code
-- Download the zip archive from the latest release (not the source), then extract the archive to a folder.
-- In the otf folder, select all of the CascadiaCodeNF and CascadiaMonoNF files, right click and select Install (might be different on non-Windows).
+This repo uses [Cascadia Code](https://github.com/microsoft/cascadia-code) (the CascadiaCodeNF and CascadiaMonoNF variants).
+
+The `setupWin` script will run the Nerd Font install automatically. You can also run `setupScripts\Install-NerdFont.ps1` directly. Use the `-Force` flag to update to the latest version without prompting.
+
+**Manual install:** Download the zip from the [latest release](https://github.com/microsoft/cascadia-code/releases/latest) (not the source), extract the archive, then in the otf folder, select all of the CascadiaCodeNF and CascadiaMonoNF files, right-click, and select Install.

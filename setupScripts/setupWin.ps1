@@ -229,5 +229,19 @@ if ($Prune) {
     }
 }
 
+# Install Nerd Font and configure Windows Terminal
+$nerdFontScript = Join-Path $scriptDir 'Install-NerdFont.ps1'
+if (Test-Path $nerdFontScript) {
+    Write-Host ""
+    $response = Read-Host "Install/update Nerd Font? (y/n)"
+    if ($response -match '^[yY]') {
+        & $nerdFontScript
+    } else {
+        Write-Host "Skipping Nerd Font installation."
+    }
+} else {
+    Write-Warning "Install-NerdFont.ps1 not found at $nerdFontScript"
+}
+
 # Final pause & exit
 if (-not $allSuccess) { Wait-ForKeyAndExit -Code 1 } else { Wait-ForKeyAndExit -Code 0 }
