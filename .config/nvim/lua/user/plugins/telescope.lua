@@ -12,7 +12,12 @@ return {
 					file_ignore_patterns = { ".git" },
 				}
 			})
-			require("telescope").load_extension("fzy_native")
+
+			-- fzy_native doesn't run on Android since it's built/linked with glibc
+			if vim.fn.has("android") == 0 then
+				require("telescope").load_extension("fzy_native")
+			end
+
 			vim.keymap.set("n", "<Leader>ff", require('telescope.builtin').find_files)
 			vim.keymap.set("n", "<Leader>en", function()
 				require('telescope.builtin').find_files {
