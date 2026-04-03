@@ -16,3 +16,9 @@ vim.opt.splitright = true
 vim.opt.showmatch = true
 vim.opt.number = true
 vim.opt.listchars = { tab = ">-", space = "·" }
+
+-- Disable remote plugin providers for Node, Perl, Python, and Ruby
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
