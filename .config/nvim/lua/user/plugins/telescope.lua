@@ -4,7 +4,6 @@ return {
 		enabled = true,
 		dependencies = {
 			'nvim-lua/plenary.nvim',
-			'nvim-telescope/telescope-fzy-native.nvim'
 		},
 		config = function()
 			require("telescope").setup({
@@ -13,23 +12,36 @@ return {
 				}
 			})
 
-			-- fzy_native doesn't run on Android since it's built/linked with glibc
-			if vim.fn.has("android") == 0 then
-				require("telescope").load_extension("fzy_native")
-			end
+			local Path = require('plenary.path')
 
+			-- Find Files (in the current directory)
 			vim.keymap.set("n", "<Leader>ff", require('telescope.builtin').find_files)
+
+			-- Edit Neovim (files in Neovim config)
 			vim.keymap.set("n", "<Leader>en", function()
 				require('telescope.builtin').find_files {
 					cwd = vim.fn.stdpath("config")
 				}
 			end)
-			vim.keymap.set("n", "<Leader>ed", function()
+
+			-- Edit Packages (files in Neovim plugin packages installed via Lazy)
+			vim.keymap.set("n", "<Leader>ep", function()
 				require('telescope.builtin').find_files {
-					cwd = vim.fn.expand('$HOME') .. '/.dotfiles'
+					cwd = Path:new(vim.fn.stdpath("data"), "lazy").filename
 				}
 			end)
+
+			-- Edit dotfiles (files in my dotfiles repo)
+			vim.keymap.set("n", "<Leader>ed", function()
+				require('telescope.builtin').find_files {
+					cwd = Path:new(vim.fn.expand('$HOME'), '.dotfiles').filename
+				}
+			end)
+
+			-- Find Buffers
 			vim.keymap.set("n", "<Leader>fb", require('telescope.builtin').buffers)
+
+			-- Find Help
 			vim.keymap.set("n", "<Leader>fh", require('telescope.builtin').help_tags)
 		end
 	}
