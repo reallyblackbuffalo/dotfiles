@@ -8,6 +8,7 @@ return {
 					show_hidden = true,
 				}
 			})
+			vim.keymap.set("n", "<Leader>-", "<Cmd>Oil<CR>")
 		end
 	}
 }
